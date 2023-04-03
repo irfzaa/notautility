@@ -188,15 +188,16 @@ export const SUATMMView: FC = ({}) => {
   };
 
   return (
-    <div className="container mx-auto max-w-6xl p-8 2xl:px-0">
+    <div className="bg-[#ADDDE1] p-8 2xl:px-00">
       <div className={styles.container}>
-        <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box flex justify-around">
+      <div className="navbar mb-2 shadow-lg bg-[#E9E0D7] text-neutral-content rounded-box flex justify-around">
+        <img className="w-10 h-10 object-contain top-px " src='https://i.postimg.cc/fL5M7z5X/cool-cats-gif.png'alt="main_banner"/>
           <div className="flex-1 px-2">
             <div className="text-sm breadcrumbs">
-              <ul className="text-xs sm:text-xl">
+            <ul className="text-xs sm:text-xl text-[#34488A] font-bold">
                 <li>
                   <Link href="/">
-                    <a>SOLANA-TOOLS</a>
+                    <a>NOT A UTILITY</a>
                   </Link>
                 </li>
               </ul>
@@ -212,8 +213,8 @@ export const SUATMMView: FC = ({}) => {
           <div className="hero min-h-16 p-0 pt-10">
             <div className="text-center hero-content w-full">
               <div className="w-full">
-                <h1 className="mb-5 text-5xl">
-                  Send a NFT Message to the desired NFT, .sol domain name or <a className="text-[#9B2DCA] underline" target="_blank" href="https://twitter.com/onsol_labs" rel="noreferrer">ANS</a> owner
+              <h1 className="mb-5 text-5xl text-[#34488A] font-bold">
+                  Send a NFT Message to the desired NFT, .sol domain name 
                 </h1>
 
                 <div>

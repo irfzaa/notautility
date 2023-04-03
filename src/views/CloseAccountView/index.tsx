@@ -186,15 +186,16 @@ export const CloseAccountView: FC = ({}) => {
   };
 
   return (
-    <div className="container mx-auto max-w-6xl p-8 2xl:px-0">
+    <div className="bg-[#ADDDE1] p-8 2xl:px-00">
       <div className={styles.container}>
-        <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box flex justify-around">
+        <div className="navbar mb-2 shadow-lg bg-[#E9E0D7] text-neutral-content rounded-box flex justify-around">
+        <img className="w-10 h-10 object-contain top-px " src='https://i.postimg.cc/fL5M7z5X/cool-cats-gif.png'alt="main_banner"/>
           <div className="flex-1 px-2">
             <div className="text-sm breadcrumbs">
-              <ul className="text-xs sm:text-xl">
+              <ul className="text-xs sm:text-xl text-[#34488A] font-bold">
                 <li>
                   <Link href="/">
-                    <a>SOLANA-TOOLS</a>
+                    <a>NOT A UTILITY</a>
                   </Link>
                 </li>
               </ul>
@@ -209,8 +210,8 @@ export const CloseAccountView: FC = ({}) => {
           <div className="hero min-h-16 p-0 pt-10">
             <div className="text-center hero-content w-full">
               <div className="w-full">
-                <h1 className="mb-5 text-5xl">
-                  Close empty account and get $SOL back
+                <h1 className="mb-5 text-5xl font-bold text-[#B33F48]">
+                  CLAIM YOUR SOL BACK
                 </h1>
 
                 <div className="mb-auto my-10">
@@ -221,7 +222,7 @@ export const CloseAccountView: FC = ({}) => {
                   )}
 
                   {!isFetched && wallet.publicKey && (
-                    <div className="mt-[25%]">
+                    <div className="font-bold mt-[25%] text-[#B33F48]">
                       <Loader text="Fetching tokens..." />
                     </div>
                   )}
@@ -287,7 +288,7 @@ export const CloseAccountView: FC = ({}) => {
 
                       <div className="my-2">
                         {success ? (
-                          <div className="text-[#00FF00]">
+                          <div className="text-[#B33F48]">
                             Successfully closed!
                           </div>
                         ) : (
@@ -297,14 +298,14 @@ export const CloseAccountView: FC = ({}) => {
 
                       <div className="my-2">
                         {message != "" ? (
-                          <div className="text-[#FF0000]">{message}</div>
+                          <div className="text-[#B33F48]">{message}</div>
                         ) : (
                           <div className="h-[27px]"></div>
                         )}
                       </div>
 
                       {!emptyAccounts.length ? (
-                        <div className="text-center text-2xl pt-16">
+                        <div className="text-center text-2xl pt-16 text-[#B33F48]">
                           No empty account found in this wallet
                         </div>
                       ) : (
@@ -312,7 +313,7 @@ export const CloseAccountView: FC = ({}) => {
                           {emptyAccounts?.map((token: any) => (
                             <div
                               key={token}
-                              className={`card bg-[#15263F] max-w-xs rounded-xl border-2 border-[#FFFFFF]`}
+                              className={`card bg-[#B33F48] max-w-xs rounded-2xl border-2 border-[#E9E0D7]`}
                             >
                               <div>
                                 <div

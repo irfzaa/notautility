@@ -4,7 +4,7 @@ import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { useConnection } from "@solana/wallet-adapter-react";
 
-import { Loader, SolanaLogo } from "components";
+import { Loader} from "components";
 import styles from "./index.module.css";
 import { Metaplex, toBigNumber } from "@metaplex-foundation/js";
 import { PublicKey, Transaction, SystemProgram, SYSVAR_INSTRUCTIONS_PUBKEY } from "@solana/web3.js";
@@ -90,7 +90,7 @@ export const BurnNFTView: FC = ({}) => {
           logoURI = NFTloaded.json?.image;
         } else {
           logoURI =
-            "https://arweave.net/WCMNR4N-4zKmkVcxcO2WImlr2XBAlSWOOKBRHLOWXNA";
+            "https://i.postimg.cc/fL5M7z5X/cool-cats-gif.png";
         }
         
         // @ts-ignore
@@ -327,7 +327,7 @@ export const BurnNFTView: FC = ({}) => {
       <div>
         {!isSelected ? (
           <button
-            className="py-2 px-2 font-bold rounded-xl text-xs bg-[#663b99] hover:bg-[#36185b] uppercase sm:ml-1 mb-2 sm:mb-4"
+            className="py-2 px-2 font-bold rounded-2xl text-xs  bg-[#E9E0D7] hover:bg-[#ADDDE1] text-[#B33F48] uppercase sm:ml-1 mb-2 sm:mb-4"
             onClick={() => {
               setIsSelected(true);
               toBurn.push(data);
@@ -337,7 +337,7 @@ export const BurnNFTView: FC = ({}) => {
           </button>
         ) : (
           <button
-            className="py-2 px-2 font-bold rounded-xl text-xs bg-[#36185b] hover:bg-[#663b99] uppercase sm:ml-1 mb-2 sm:mb-4"
+            className="py-2 px-2 font-bold rounded-2xl text-xs bg-[#E9E0D7] hover:bg-[#ADDDE1] text-[#B33F48] uppercase sm:ml-1 mb-2 sm:mb-4"
             onClick={() => {
               setIsSelected(false);
               toBurn.splice(toBurn.indexOf(data), 1);
@@ -351,15 +351,16 @@ export const BurnNFTView: FC = ({}) => {
   }
 
   return (
-    <div className="container mx-auto max-w-6xl p-8 2xl:px-0">
+    <div className="bg-[#ADDDE1] p-8 2xl:px-0">
       <div className={styles.container}>
-        <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box flex justify-around">
+        <div className="navbar mb-2 shadow-lg bg-[#E9E0D7] text-neutral-content rounded-box flex justify-around">
+        <img className="w-10 h-10 object-contain top-px " src='https://i.postimg.cc/fL5M7z5X/cool-cats-gif.png'alt="main_banner"/>
           <div className="flex-1 px-2">
             <div className="text-sm breadcrumbs">
-              <ul className="text-xs sm:text-xl">
+              <ul className="text-xs sm:text-xl text-[#34488A] font-bold">
                 <li>
                   <Link href="/">
-                    <a>SOLANA-TOOLS</a>
+                    <a>NOT A UTILITY</a>
                   </Link>
                 </li>
               </ul>
@@ -374,8 +375,8 @@ export const BurnNFTView: FC = ({}) => {
           <div className="hero min-h-16 p-0 pt-10">
             <div className="text-center hero-content w-full">
               <div className="w-full">
-                <h1 className="mb-5 text-5xl">
-                  Burn your Solana <SolanaLogo /> NFTs and get $SOL back
+                <h1 className="mb-5 text-5xl font-bold text-[#B33F48]">
+                  Burn your Solana  NFTs 
                 </h1>
 
                 <div className="mb-auto my-10">
@@ -386,7 +387,7 @@ export const BurnNFTView: FC = ({}) => {
                   )}
 
                   {!isFetched && wallet.publicKey && (
-                    <div className="mt-[25%]">
+                    <div className="font-bold mt-[25%] text-[#B33F48] ">
                       <Loader text="Fetching tokens..." />
                     </div>
                   )}
@@ -438,7 +439,7 @@ export const BurnNFTView: FC = ({}) => {
 
                       <div className="my-2">
                         {success ? (
-                          <div className="text-[#00FF00]">
+                          <div className="text-[#B33F48]">
                             Successfully closed!
                           </div>
                         ) : (
@@ -448,14 +449,14 @@ export const BurnNFTView: FC = ({}) => {
 
                       <div className="my-2">
                         {message != "" ? (
-                          <div className="text-[#FF0000]">{message}</div>
+                          <div className="text-[#B33F48]">{message}</div>
                         ) : (
                           <div className="h-[27px]"></div>
                         )}
                       </div>
 
                       {!userNFT.length ? (
-                        <div className="text-center text-2xl pt-16">
+                        <div className="text-[#B33F48] text-center text-2xl pt-16">
                           No NFT found in this wallet
                         </div>
                       ) : (
@@ -463,7 +464,7 @@ export const BurnNFTView: FC = ({}) => {
                           {userNFT?.map((token: any) => (
                             <div
                               key={token}
-                              className={`card bg-[#15263F] max-w-xs rounded-xl border-2 border-[#FFFFFF]`}
+                              className={`card bg-[#B33F48] max-w-xs rounded-2xl border-2 border-[#E9E0D7]`}
                             >
                               <div>
                                 <div
@@ -494,7 +495,7 @@ export const BurnNFTView: FC = ({}) => {
                                 <a
                                   target="_blank"
                                   rel="noreferrer"
-                                  className="py-2 px-2 font-bold rounded-xl text-xs bg-[#9945FF] hover:bg-[#7a37cc] uppercase sm:ml-1 mb-2 sm:mb-4"
+                                  className="py-2 px-2 font-bold rounded-2xl text-xs bg-[#E9E0D7] hover:bg-[#ADDDE1] text-[#B33F48] uppercase sm:ml-1 mb-2 sm:mb-4"
                                   href={
                                     "https://solscan.io/token/" + token.mint
                                   }

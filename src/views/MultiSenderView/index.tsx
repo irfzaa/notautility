@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from "react";
 import { useWallet, useConnection } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
-import { SolanaLogo, ConnectWallet, Loader } from "components";
+import {  ConnectWallet, Loader } from "components";
 import styles from "./index.module.css";
 
 import {
@@ -48,15 +48,16 @@ export const MultiSenderView: FC = ({}) => {
   const [sendingType, setSendingType] = useState("");
 
   return (
-    <div className="container mx-auto max-w-6xl p-8 2xl:px-0">
+    <div className="bg-[#ADDDE1] p-8 2xl:px-00">
       <div className={styles.container}>
-        <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box flex justify-around">
+        <div className="navbar mb-2 shadow-lg bg-[#E9E0D7] text-neutral-content rounded-box flex justify-around">
+        <img className="w-10 h-10 object-contain top-px " src='https://i.postimg.cc/fL5M7z5X/cool-cats-gif.png'alt="main_banner"/>
           <div className="flex-1 px-2">
             <div className="text-sm breadcrumbs">
-              <ul className="text-xs sm:text-xl">
+              <ul className="text-xs sm:text-xl text-[#34488A] font-bold">
                 <li>
                   <Link href="/">
-                    <a>SOLANA-TOOLS</a>
+                    <a>NOT A UTILITY</a>
                   </Link>
                 </li>
               </ul>
@@ -72,22 +73,9 @@ export const MultiSenderView: FC = ({}) => {
           <div className="hero min-h-16 p-0 pt-10">
             <div className="text-center hero-content w-full">
               <div className="w-full">
-                <h1 className="mb-5 text-5xl">
-                  Multi Send Token <SolanaLogo />
+                <h1 className="mb-5 text-5xl font-bold text-[#B33F48]">
+                  Multi Send Token 
                 </h1>
-                <h3 className="font-semibold text-xl pb-5">
-                  Supports public address, .sol domain name,{" "}
-                  <a
-                    className="text-[#9B2DCA] underline"
-                    target="_blank"
-                    href="https://twitter.com/onsol_labs"
-                    rel="noreferrer"
-                  >
-                    ANS
-                  </a>{" "}
-                  and Twitter handle with @
-                </h3>
-
                 {sendingType == "" && (
                   <div>
                     <div className="max-w-4xl mx-auto">
@@ -98,11 +86,11 @@ export const MultiSenderView: FC = ({}) => {
                             setSendingType("oneToken");
                           }}
                         >
-                          <div className="p-4 hover:border">
-                            <a className="text-4xl font-bold mb-5">
+                          <div className="text-center p-4 hover:border border-[#B33F48] bg-[#E9E0D7] rounded-2xl">
+                            <a className="text-4xl font-bold mb-5 text-[#B33F48]">
                               1 token - Multiple receivers
                             </a>
-                            <div>Send one token to multiple receivers</div>
+
                           </div>
                         </li>
 
@@ -112,11 +100,10 @@ export const MultiSenderView: FC = ({}) => {
                             setSendingType("oneReceiver");
                           }}
                         >
-                          <div className="p-4 hover:border">
-                            <a className="text-4xl font-bold mb-5">
+                          <div className="text-center p-4 hover:border border-[#B33F48] bg-[#E9E0D7] rounded-2xl">
+                            <a className="text-4xl font-bold mb-5 text-[#B33F48]">
                               Multiple tokens - 1 receiver
                             </a>
-                            <div>Send multiple tokens to one receiver</div>
                           </div>
                         </li>
 
@@ -126,14 +113,10 @@ export const MultiSenderView: FC = ({}) => {
                             setSendingType("csv");
                           }}
                         >
-                          <div className="p-4 hover:border">
-                            <a className="text-4xl font-bold mb-5">
+                          <div className="text-center p-4 hover:border border-[#B33F48] bg-[#E9E0D7] rounded-2xl">
+                            <a className="text-4xl font-bold mb-5 text-[#B33F48]">
                               Upload CSV file
                             </a>
-                            <div>
-                              Use a CSV file to multi send tokens and solana
-                              domains
-                            </div>
                           </div>
                         </li>
                         <li
@@ -142,13 +125,11 @@ export const MultiSenderView: FC = ({}) => {
                             setSendingType("emergency");
                           }}
                         >
-                          <div className="p-4 hover:border">
-                            <a className="text-4xl font-bold mb-5">
+                          <div className="text-center p-4 hover:border border-[#B33F48] bg-[#E9E0D7] rounded-2xl">
+                            <a className="text-4xl font-bold mb-5 text-[#B33F48]">
                               Emergency send
                             </a>
-                            <div>
-                              Send all of your tokens and NFTS in a new wallet
-                            </div>
+
                           </div>
                         </li>
                       </ul>
@@ -159,7 +140,7 @@ export const MultiSenderView: FC = ({}) => {
                 {sendingType != "" && (
                   <div className="flex">
                     <button
-                      className="text-white font-semibold text-xl w-[6rem] h-[2rem] mb-2 bg-[#2C3B52] hover:bg-[#566274] rounded-xl border"
+                      className="text-[#B33F48] font-semibold text-xl w-[6rem] h-[2rem] mb-2 bg-[#2C3B52] hover:bg-[#566274] rounded-xl border"
                       onClick={() => {
                         setSendingType("");
                       }}
@@ -185,7 +166,7 @@ export const MultiSenderView: FC = ({}) => {
 function LoadingIndicator() {
   return (
     <div
-      className="mt-[15%]"
+      className="mt-[15%] text-[#B33F48]"
       style={{
         display: "flex",
         flexDirection: "column",
@@ -206,6 +187,12 @@ function OneToken() {
   const [isFetched, setIsFetched] = useState<boolean>(false);
   const [token, setToken] = useState<string>("");
   const [receiverList, setReceiverList] = useState([
+    { receiver: "", amount: "1" },
+    { receiver: "", amount: "1" },
+    { receiver: "", amount: "1" },
+    { receiver: "", amount: "1" },
+    { receiver: "", amount: "1" },
+    { receiver: "", amount: "1" },
     { receiver: "", amount: "1" },
     { receiver: "", amount: "1" },
     { receiver: "", amount: "1" },
@@ -482,9 +469,9 @@ function OneToken() {
   } else {
     return (
       <div className="">
-        <div className="mt-[4%] mb-[2%]">
+        <div className="mt-[4%] mb-[2%] text-[#B33F48]">
           <select
-            className="mb-[2%] md:w-[480px] text-left mx-4 text-black pl-1 border-2 border-black"
+            className="mb-[2%] md:w-[480px] text-left mx-4 text-black pl-1 border-2 border-black text-[#B33F48]"
             required
             onChange={(e) => setToken(e.target.value)}
             style={{
@@ -501,13 +488,13 @@ function OneToken() {
               );
             })}
           </select>
-          <div className="mt-4">
+          <div className="mt-4 text-[#B33F48]">
             {receiverList.map((x, i) => {
               return (
                 <div className="flex justify-center" key={i}>
                   <div>
                     <input
-                      className="mb-[2%] md:w-[480px] text-center mx-4 text-black pl-1 border-2 border-black"
+                      className="mb-[2%] md:w-[480px] text-center mx-4 text-black pl-1 border-2 border-black text-[#B33F48]"
                       name={"receiver"}
                       type="text"
                       placeholder="Receiver"
@@ -520,7 +507,7 @@ function OneToken() {
                     />
 
                     <input
-                      className="sm:mb-[1%] mb-2 w-[150px] mx-4 text-black pl-1 border-2 border-black"
+                      className="sm:mb-[1%] mb-2 w-[150px] mx-4 text-black pl-1 border-2 border-black text-[#B33F48]"
                       name={"amount"}
                       type="text"
                       placeholder="Amount"
@@ -540,7 +527,7 @@ function OneToken() {
 
         {!isSending ? (
           <button
-            className="text-white font-semibold text-xl bg-[#414e63] hover:bg-[#2C3B52] w-[160px] rounded-full shadow-xl border"
+            className="text-[#B33F48] font-semibold text-xl bg-[#414e63] hover:bg-[#2C3B52] w-[160px] rounded-full shadow-xl border"
             onClick={send}
           >
             Send
@@ -568,7 +555,7 @@ function OneToken() {
         )}
 
         {success && (
-          <div className="font-semibold text-xl mt-4">
+          <div className="font-semibold text-xl mt-4 text-[#B33F48]">
             ✅ Successfuly sent! Check it{" "}
             <a
               target="_blank"
@@ -875,9 +862,9 @@ function OneReceiver() {
   } else {
     return (
       <div className="">
-        <div className="mt-[4%] mb-[2%]">
+        <div className="mt-[4%] mb-[2%] text-[#B33F48]">
           <input
-            className="mb-[2%] md:w-[480px] text-center mx-4 text-black pl-1 border-2 border-black"
+            className="mb-[2%] md:w-[480px] text-center mx-4 text-black pl-1 border-2 border-black text-[#B33F48]"
             type="text"
             required
             placeholder="Receiver Address"
@@ -892,7 +879,7 @@ function OneReceiver() {
                 <div className="flex justify-center" key={i}>
                   <div>
                     <select
-                      className="mb-[2%] md:w-[480px] text-left mx-4 text-black pl-1 border-2 border-black"
+                      className="mb-[2%] md:w-[480px] text-left mx-4 text-black pl-1 border-2 border-black text-[#B33F48]"
                       name={"token"}
                       placeholder="Token"
                       value={x.token}
@@ -914,7 +901,7 @@ function OneReceiver() {
                     </select>
 
                     <input
-                      className="sm:mb-[1%] mb-2 w-[150px] mx-4 text-black pl-1 border-2 border-black"
+                      className="sm:mb-[1%] mb-2 w-[150px] mx-4 text-black pl-1 border-2 border-black text-[#B33F48]"
                       name={"amount"}
                       type="text"
                       placeholder="Amount"
@@ -934,13 +921,13 @@ function OneReceiver() {
 
         {!isSending ? (
           <button
-            className="text-white font-semibold text-xl bg-[#414e63] hover:bg-[#2C3B52] w-[160px] rounded-full shadow-xl border"
+            className="text-[#B33F48] font-semibold text-xl bg-[#414e63] hover:bg-[#2C3B52] w-[160px] rounded-full shadow-xl border"
             onClick={send}
           >
             Send
           </button>
         ) : (
-          <button className="text-white font-semibold text-xl bg-[#414e63] hover:bg-[#2C3B52] w-[160px] rounded-full shadow-xl border">
+          <button className="text-[#B33F48] font-semibold text-xl bg-[#414e63] hover:bg-[#2C3B52] w-[160px] rounded-full shadow-xl border">
             <svg
               role="status"
               className="inline mr-3 w-4 h-4 text-white animate-spin"
@@ -962,7 +949,7 @@ function OneReceiver() {
         )}
 
         {success && (
-          <div className="font-semibold text-xl mt-4">
+          <div className="font-semibold text-xl mt-4 text-[#B33F48]">
             ✅ Successfuly sent! Check it{" "}
             <a
               target="_blank"
@@ -1186,8 +1173,8 @@ function CSV() {
 
   return (
     <div>
-      <h1 className="font-bold mb-5 text-3xl uppercase">Upload CSV file</h1>
-      <div className="font-semibold text-xl">
+      <h1 className="font-bold mb-5 text-3xl uppercase text-[#B33F48]">Upload CSV file</h1>
+      <div className="font-semibold text-xl text-[#B33F48]">
         The file has to respect the following order:
         <br />{" "}
         <strong>receiver&apos;s address, token address, amount to send</strong>
@@ -1195,7 +1182,7 @@ function CSV() {
       <form className="mt-[5%] mb-4">
         <label
           htmlFor="file"
-          className="text-white font-semibold text-xl rounded-full shadow-xl bg-[#414e63] border px-6 py-2 h-[40px] mb-[3%] uppercase hover:bg-[#2C3B52] hover:cursor-pointer"
+          className="text-[#B33F48] font-semibold text-xl rounded-full shadow-xl bg-[#414e63] border px-6 py-2 h-[40px] mb-[3%] uppercase hover:bg-[#2C3B52] hover:cursor-pointer"
         >
           Select file
           <input
@@ -1210,21 +1197,21 @@ function CSV() {
       </form>
 
       {fileName != "" && (
-        <div className="text-white font-semibold text-xl mb-2">
+        <div className="text-[#B33F48] font-semibold text-xl mb-2">
           {fileName} uploaded!
         </div>
       )}
 
       {!isSending && isUploaded && (
         <button
-          className="mt-4 text-white font-semibold text-xl bg-[#414e63] hover:bg-[#2C3B52] w-[160px] rounded-full shadow-xl border"
+          className="mt-4 text-[#B33F48] font-semibold text-xl bg-[#414e63] hover:bg-[#2C3B52] w-[160px] rounded-full shadow-xl border"
           onClick={send}
         >
           Send
         </button>
       )}
       {isSending && (
-        <button className="mt-4 text-white font-semibold text-xl bg-[#414e63] hover:bg-[#2C3B52] w-[160px] rounded-full shadow-xl border">
+        <button className="mt-4 text-[#B33F48] font-semibold text-xl bg-[#414e63] hover:bg-[#2C3B52] w-[160px] rounded-full shadow-xl border">
           <svg
             role="status"
             className="inline mr-3 w-4 h-4 text-white animate-spin"
@@ -1246,17 +1233,17 @@ function CSV() {
       )}
 
       {success && (
-        <div className="font-semibold text-xl mt-4">✅ Successfuly sent!</div>
+        <div className="font-semibold text-xl mt-4 text-[#B33F48]">✅ Successfuly sent!</div>
       )}
 
       {isSending && currentTx != 0 && totalTx != 0 && (
-        <div className="font-semibold mt-4 mb-2 text-xl">
+        <div className="font-semibold mt-4 mb-2 text-xl text-[#B33F48]">
           Please confirm Tx: {currentTx}/{totalTx}
         </div>
       )}
 
       {error != "" && (
-        <div className="mt-4 font-semibold text-xl">❌ {error}</div>
+        <div className="mt-4 font-semibold text-xl text-[#B33F48]">❌ {error}</div>
       )}
     </div>
   );
@@ -1428,27 +1415,27 @@ function Emergency() {
 
   return (
     <div className="">
-      <div className="font-semibold mt-[5%] mb-2 text-2xl">
+      <div className="font-semibold mt-[5%] mb-2 text-2xl text-[#B33F48]">
         Send all your tokens, NFTs and domain names to a new wallet address
       </div>
       <input
-        className="w-[400px] mx-4 mt-[5%] mb-2 text-black pl-1 border-2 border-black rounded-xl"
+        className="w-[400px] mx-4 mt-[5%] mb-2 text-black pl-1 border-2 border-black rounded-xl text-[#B33F48]"
         type="text"
         placeholder="New wallet address"
         onChange={(e) => setReceiver(e.target.value)}
       />
       {!isSending ? (
         <button
-          className="px-4 h-[2rem] text-white font-semibold text-xl rounded-xl bg-[#F00020] hover:bg-[#850606]"
+          className="px-4 h-[2rem] text-[#B33F48] font-semibold text-xl rounded-xl bg-[#F00020] hover:bg-[#850606]"
           onClick={send}
         >
           Send
         </button>
       ) : (
-        <button className="px-4 h-[2rem] text-white font-semibold text-xl rounded-xl bg-[#F00020] hover:bg-[#850606]">
+        <button className="px-4 h-[2rem] text-[#B33F48] font-semibold text-xl rounded-xl bg-[#F00020] hover:bg-[#850606]">
           <svg
             role="status"
-            className="inline mr-3 w-4 h-4 text-white animate-spin"
+            className="inline mr-3 w-4 h-4 text-[#B33F48] animate-spin"
             viewBox="0 0 100 101"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -1467,16 +1454,16 @@ function Emergency() {
       )}
 
       {success && (
-        <div className="font-semibold text-xl mt-4">✅ Successfuly sent!</div>
+        <div className="font-semibold text-xl mt-4 text-[#B33F48]">✅ Successfuly sent!</div>
       )}
       {isSending && currentTx != undefined && nbTotalTx != undefined && (
-        <div className="font-semibold mt-4 mb-2 text-xl">
+        <div className="font-semibold mt-4 mb-2 text-xl text-[#B33F48]">
           Please confirm Tx: {currentTx}/{nbTotalTx}
         </div>
       )}
 
       {error != "" && (
-        <div className="mt-4 font-semibold text-xl">❌ {error}</div>
+        <div className="mt-4 font-semibold text-xl text-[#B33F48]">❌ {error}</div>
       )}
     </div>
   );

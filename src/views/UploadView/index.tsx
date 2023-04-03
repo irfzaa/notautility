@@ -83,15 +83,16 @@ export const UploadView: FC = ({ }) => {
   }
 
   return (
-    <div className="container mx-auto max-w-6xl p-8 2xl:px-0">
+    <div className="bg-[#ADDDE1] p-8 2xl:px-00">
       <div className={styles.container}>
-        <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box flex justify-around">
+      <div className="navbar mb-2 shadow-lg bg-[#E9E0D7] text-neutral-content rounded-box flex justify-around">
+        <img className="w-10 h-10 object-contain top-px " src='https://i.postimg.cc/fL5M7z5X/cool-cats-gif.png'alt="main_banner"/>
           <div className="flex-1 px-2">
             <div className="text-sm breadcrumbs">
-              <ul className="text-xs sm:text-xl">
+            <ul className="text-xs sm:text-xl text-[#34488A] font-bold">
                 <li>
                   <Link href="/">
-                    <a>SOLANA-TOOLS</a>
+                    <a>Not a utility</a>
                   </Link>
                 </li>
               </ul>
@@ -107,26 +108,26 @@ export const UploadView: FC = ({ }) => {
           <div className="hero min-h-16 p-0 pt-10">
             <div className="text-center hero-content w-full">
               <div className="w-full">
-                <h1 className="mb-5 text-5xl">
+                <h1 className="mb-5 text-5xl text-[#34488A] font-bold">
                   Upload File To Arweave
                 </h1>
 
                 <div>
-                  <form className="mt-[20%] mb-[3%]">
-                    <label htmlFor="file" className="text-white font-semibold text-xl rounded-full shadow-xl bg-[#414e63] border px-6 py-2 h-[40px] mb-[3%] uppercase hover:bg-[#2C3B52] hover:cursor-pointer">
+                  <form className="mt-[20%] mb-[3%] text-[#B33F48]">
+                    <label htmlFor="file" className="text-[#B33F48] font-semibold text-xl rounded-full shadow-xl bg-[#414e63] border px-6 py-2 h-[40px] mb-[3%] uppercase hover:bg-[#2C3B52] hover:cursor-pointer">
                       Select file
                       <input id="file" type="file" name="file" onChange={handleFileChange} style={{ display: 'none' }} />
                     </label>
                   </form>
 
                   {fileName != '' && uri == '' && uploadCost &&
-                    <div className="text-white font-semibold text-xl mb-[3%]">
+                    <div className="text-[#B33F48] font-semibold text-xl mb-[3%]">
                       You will upload <strong>{fileName}</strong> for {uploadCost} SOL
                     </div>
                   }
 
                   {fileIsSelected && uploading == false &&
-                    <button className="text-white font-semibold text-xl rounded-full shadow-xl bg-[#414e63] hover:bg-[#2C3B52] border w-[160px] h-[40px] mb-[3%] uppercase" onClick={UploadFile}>Upload
+                    <button className="text-[#B33F48] font-semibold text-xl rounded-full shadow-xl bg-[#414e63] hover:bg-[#2C3B52] border w-[160px] h-[40px] mb-[3%] uppercase" onClick={UploadFile}>Upload
                     </button>
                   }
 
@@ -141,10 +142,10 @@ export const UploadView: FC = ({ }) => {
                   {error != '' && <div>❌ Ohoh.. An error occurs: {error}</div>}
 
                   {uri !== '' &&
-                    <div className="font-semibold text-xl mb-[2%]">
+                    <div className="font-semibold text-xl mb-[2%] text-[#B33F48]">
                       ✅ Successfuly uploaded! <br />Don't forget to copy the following link:
                     </div>}
-                  <div className="font-semibold text-xl underline">
+                  <div className="font-semibold text-xl underline text-[#B33F48]">
                     <a target="_blank" rel="noreferrer" href={uri}> {uri}</a>
                   </div>
 
